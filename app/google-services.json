@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_number": "182209889922",
+    "firebase_url": "https://bulletinboard-80a40-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "bulletinboard-80a40",
+    "storage_bucket": "bulletinboard-80a40.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:182209889922:android:911eb41dbfe406dddb969b",
+        "android_client_info": {
+          "package_name": "com.example.bulletinboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "182209889922-4sujqd2ibu20ri4t7l07pt5p069mtfmf.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bulletinboard",
+            "certificate_hash": "761a8f13ed44388e617e4241846415bd278eac76"
+          }
+        },
+        {
+          "client_id": "182209889922-cdq9eo3hp8dl1769t6fi14nui3qoul2g.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.bulletinboard",
+            "certificate_hash": "39d66f68629f4e87f7076264578cc8bf3f816cf3"
+          }
+        },
+        {
+          "client_id": "182209889922-ogkh6m1dch2kbslqvgvf8uj5th4935nq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAM92o6K6p533mFEHp8l7hOsoJfStYCYuw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "182209889922-ogkh6m1dch2kbslqvgvf8uj5th4935nq.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

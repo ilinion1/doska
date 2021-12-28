@@ -1,0 +1,85 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    //зависимость для firebase
+    id 'com.google.gms.google-services'
+}
+
+android {
+    signingConfigs {
+        release {
+            storeFile file('C:\\Users\\user\\androidStudio\\key project\\Доска объявлений\\keyDoskaObyavleniy.jks')
+            storePassword '1Katetor1'
+            keyAlias 'keyDoska'
+            keyPassword '1Katetor1'
+        }
+    }
+    compileSdk 31
+
+    defaultConfig {
+        applicationId "com.example.bulletinboard"
+        minSdk 21
+        targetSdk 31
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        android.defaultConfig.vectorDrawables.useSupportLibrary = true //не знаю зачем, просто у него увидел
+        multiDexEnabled true //увеличиваю количество допустимых методов в приложении
+    }
+
+    lintOptions {
+        checkReleaseBuilds false
+        abortOnError false
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.release
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures{
+        viewBinding true
+    }
+}
+
+dependencies {
+
+    implementation 'androidx.core:core-ktx:1.7.0'
+    implementation 'androidx.appcompat:appcompat:1.4.0'
+    implementation 'com.google.android.material:material:1.4.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.2'
+    //зависимости для firebase
+    implementation platform('com.google.firebase:firebase-bom:29.0.2')
+    implementation 'com.google.firebase:firebase-auth-ktx'
+    implementation 'com.google.firebase:firebase-database-ktx'
+    implementation 'com.google.firebase:firebase-storage-ktx'
+    //зависимость для firebase, аутификация по гугл ак
+    implementation 'com.google.android.gms:play-services-auth:20.0.0'
+    //зависимость для PixImagePicker
+    implementation  'io.ak1.pix:piximagepicker:1.6.2'
+    //зависимость пикассо, для сжатия картинок
+    implementation 'com.squareup.picasso:picasso:2.71828'
+    //зависимость корутины для многопоточности
+    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.5.2")
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+    //библиотека для рекламы
+    implementation 'com.google.android.gms:play-services-ads:20.5.0'
+    //библиотека для viewModel, если не работает без нее
+    implementation 'androidx.activity:activity-ktx:1.4.0'
+
+
+
+
+}
