@@ -7,9 +7,7 @@ import android.graphics.Bitmap
  */
 interface FragmentCloseInterface {
 
-    /**
-     * Функция для отслеживания закрытия интерфейса
-     */
+
     fun onFragClose(list: ArrayList<Bitmap>){
 
     }

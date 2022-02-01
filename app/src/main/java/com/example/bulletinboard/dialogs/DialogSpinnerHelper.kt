@@ -16,41 +16,42 @@ import com.example.bulletinboard.utils.CityHelper
  */
 class DialogSpinnerHelper {
 
-    fun showSpinnerDialog(context: Context, list: ArrayList<String>, tvSelection: TextView){
-        val builder = AlertDialog.Builder(context) //создаю диалоговое окно
-        //оно же, только что бы можно было его передать на адаптер, нужно с помощью builder.create(), иначе не будет функции закрыть диалог
+    fun showSpinnerDialog(context: Context, list: ArrayList<String>, tvSelection: TextView) {
+        val builder = AlertDialog.Builder(context)
         val dialog = builder.create()
-        val rootView = LayoutInflater.from(context).inflate(R.layout.spinner_layout, null) //надумаю разметку
-        val adapter = RsViewDialogSpinnerAdapter(tvSelection, dialog) //создаю адаптер для recycler
-        val rcView = rootView.findViewById<RecyclerView>(R.id.rcSpView) //нахожу recyclerView
-        val searchView = rootView.findViewById<SearchView>(R.id.svSpinner) //нахожу searchView
-        rcView.layoutManager = LinearLayoutManager(context) //указываю какой будет LayoutManager
-        rcView.adapter = adapter //присваиваю recyclerView адаптер
-        adapter.updateAdapter(list) //передаю список городов, который мы передаем с EditAdsAct
-        dialog.setView(rootView) //указываю какую разметку нужно использовать в диалоговом окне
+        val rootView = LayoutInflater.from(context).inflate(R.layout.spinner_layout, null)
+        val adapter = RsViewDialogSpinnerAdapter(tvSelection, dialog)
+        val rcView = rootView.findViewById<RecyclerView>(R.id.rcSpView)
+        val searchView = rootView.findViewById<SearchView>(R.id.svSpinner)
+        rcView.layoutManager = LinearLayoutManager(context)
+        rcView.adapter = adapter
+        adapter.updateAdapter(list)
+        dialog.setView(rootView)
         setSearchViewListener(adapter, list, searchView)
-        dialog.show() // отображаю диалог
+        dialog.show()
 
     }
 
-    /**
-     * Эта функция отображает в recyclerView результаты исходя из написанного пользователем в searchView
-     */
-    private fun setSearchViewListener(adapter: RsViewDialogSpinnerAdapter, list: ArrayList<String>, searchView: SearchView?) {
-        //добавляю searchView слушатель изменений в тексте
-        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
 
-            //методы добавленные для "object" прослушавателя изменения текста
+    private fun setSearchViewListener(
+        adapter: RsViewDialogSpinnerAdapter,
+        list: ArrayList<String>,
+        searchView: SearchView?
+    ) {
+
+        searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+
+
             override fun onQueryTextSubmit(p0: String?): Boolean {
-                return false //это использовать не будем
+                return false
             }
-            //методы добавленные для "object" прослушавателя изменения текста
+
             override fun onQueryTextChange(p0: String?): Boolean {
-                //создаем список, который хранит в себе список с функцией фильтра и вводимый текст с searchView
+
                 val tempList = CityHelper.filterListData(list, p0)
-                //обновляю адаптер и recyclerView новым списком, отфильтрованным по вводу текста
+
                 adapter.updateAdapter(tempList)
-                return true //запускаем отслеживание изменение текста
+                return true
             }
         })
     }
