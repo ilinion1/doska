@@ -6,8 +6,5 @@ package com.example.bulletinboard.frag
  */
 interface InterAdsClose {
 
-    /**
-     * Функция для действия при нажатии на кнопку закрыть рекламу
-     */
     fun onClose()
 }
